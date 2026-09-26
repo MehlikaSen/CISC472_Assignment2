@@ -3,7 +3,7 @@ services:
     name: chalk
     runtime: node
     buildCommand: npm ci && npm run build
-    startCommand: node .next/standalone/server.js
+    startCommand: HOSTNAME=0.0.0.0 node .next/standalone/server.js
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
