@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: chalk
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: node .next/standalone/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
