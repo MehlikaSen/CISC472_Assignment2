@@ -2,9 +2,11 @@ services:
   - type: web
     name: chalk
     runtime: node
-    buildCommand: npm ci && npm run build
+    buildCommand: npm ci && npm run build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static
     startCommand: HOSTNAME=0.0.0.0 node .next/standalone/server.js
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
         value: 22.13.0
+      - key: DATABASE_PATH
+        value: /tmp/chalk.db
