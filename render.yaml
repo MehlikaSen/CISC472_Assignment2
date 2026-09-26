@@ -1,4 +1,4 @@
-node .next/standalone/server.jsservices:
+services:
   - type: web
     name: chalk
     runtime: node
